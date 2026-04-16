@@ -41,7 +41,7 @@ module "service_plan" {
   }
   sku_name = "B1"
   tags = {
-    Environment = "dev"
+    "Environment" = "dev"
   }
 }
 
