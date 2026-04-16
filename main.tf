@@ -40,4 +40,7 @@ module "service_plan" {
     name     = "rg-user4"
   }
   sku_name = "B1"
+  tags = {
+    Environment = "dev"
+  }
 }
