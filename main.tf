@@ -59,8 +59,8 @@ module "app_service" {
   app_service_name = "agappserviceuser4"
   app_service_plan_id = module.service_plan.app_service_plan.id
   app_settings = {}
-  identity_client_id = module.managed_identity.managed_identity_client_id.id
-  identity_id = module.managed_identity.managed_identity_id.id
+  identity_client_id = module.managed_identity.managed_identity_client_id.value
+  identity_id = module.managed_identity.managed_identity_id.value
   resource_group = {
     location = "North Europe"
     name     = "rg-user4"
