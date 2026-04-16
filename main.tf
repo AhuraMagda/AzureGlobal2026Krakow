@@ -19,24 +19,24 @@ terraform {
   }
 }
 
-# module "keyvault" {
-#   source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=keyvault/v1.0.0"
-#   keyvault_name = "gaazuser42026xyz"
-#   network_acls = {
-#     default_action             = "Deny"
-#     bypass                     = "AzureServices"
-#   }
-#   resource_group = {
-#     location = "northeurope"
-#     name     = "rg-user4"
-#   }
-# }
+module "keyvault" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=keyvault/v1.0.0"
+  keyvault_name = "gaazuser42026xyz"
+  network_acls = {
+    default_action             = "Deny"
+    bypass                     = "AzureServices"
+  }
+  resource_group = {
+    location = "northeurope"
+    name     = "rg-user4"
+  }
+}
 
 module "service_plan" {
   source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=service_plan/v2.0.0"
   app_service_plan_name = "agspuser4"
   resource_group = {
-    location = "North Europe"
+    location = "northeurope"
     name     = "rg-user4"
   }
   sku_name = "B1"
@@ -49,7 +49,7 @@ module "managed_identity" {
   source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=managed_identity/v1.0.0"
   name = "terraformmiuser4"
   resource_group = {
-    location = "North Europe"
+    location = "northeurope"
     name     = "rg-user4"
   }
 }
@@ -62,7 +62,7 @@ module "app_service" {
   identity_client_id = module.managed_identity.managed_identity_client_id
   identity_id = module.managed_identity.managed_identity_id
   resource_group = {
-    location = "North Europe"
+    location = "northeurope"
     name     = "rg-user4"
   }
 }
