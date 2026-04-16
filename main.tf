@@ -31,3 +31,13 @@ module "keyvault" {
     name     = "rg-user4"
   }
 }
+
+module "service_plan" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=service_plan/v2.0.0"
+  app_service_plan_name = "agspuser4"
+  resource_group = {
+    location = "North Europe"
+    name     = "rg-user4"
+  }
+  sku_name = "B1"
+}
