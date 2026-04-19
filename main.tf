@@ -21,7 +21,7 @@ terraform {
 
 module "keyvault" {
   source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=keyvault/v1.0.0"
-  keyvault_name = "gaazuser42026xyzd"
+  keyvault_name = "gaazuser42026xyzd1"
   network_acls = {
     default_action = "Deny"
     bypass = "AzureServices"
