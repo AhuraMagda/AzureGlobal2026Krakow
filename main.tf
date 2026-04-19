@@ -71,3 +71,13 @@ module "app_service" {
   }
 }
 
+module "mssql_server" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=mssql_server/v1.0.0"
+    resource_group = {
+    location = "northeurope"
+    name     = "rg-user4"
+  }
+  sql_server_admin = "user4"
+  sql_server_name = "sqluser4server123"
+  sql_server_version = "12.0" 
+}
