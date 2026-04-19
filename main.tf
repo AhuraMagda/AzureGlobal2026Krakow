@@ -52,10 +52,10 @@ module "managed_identity" {
     location = "northeurope"
     name     = "rg-user4"
   }
-  permissions = {
+  permissions = [{
     scope = "/subscriptions/4c569ea4-8bfc-4063-9557-390e4b28a153/resourceGroups/rg-user4"
     role_name = "Contributor"
-  }
+  }]
 }
 
 module "app_service" {
